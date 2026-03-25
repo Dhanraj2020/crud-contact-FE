@@ -29,7 +29,7 @@ const AddEdit = () => {
     } else {
       if (!id) {
         axios
-          .post("https://crud-contact-app-be-1.onrender.com/api/post", { name, email, contact })
+          .post("/api/post", { name, email, contact })
           .then(() => {
             setState(initialState);
             toast.success("Contact Added Successfully!");
@@ -40,7 +40,7 @@ const AddEdit = () => {
           });
       } else {
         axios
-          .put(`https://crud-contact-app-be-1.onrender.com/api/update/${id}`, { name, email, contact })
+          .put(`/api/update/${id}`, { name, email, contact })
           .then(() => {
             setState(initialState);
             toast.success("Contact Updated Successfully!");
@@ -59,7 +59,7 @@ const AddEdit = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`https://crud-contact-app-be-1.onrender.com/api/get/${id}`)
+        .get(`/api/get/${id}`)
         .then((resp) => {
           if (resp.data.length > 0) {
             setState({ ...resp.data[0] });

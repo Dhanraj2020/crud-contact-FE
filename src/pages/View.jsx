@@ -10,7 +10,7 @@ const View = () => {
 
   useEffect(() => {
     axios
-      .get(`https://crud-contact-app-be-1.onrender.com/api/get/${id}`)
+      .get(`/api/get/${id}`)
       .then((resp) => setUser({ ...resp.data[0] }));
   }, [id]);
 
