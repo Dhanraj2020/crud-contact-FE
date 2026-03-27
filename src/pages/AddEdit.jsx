@@ -29,7 +29,7 @@ const AddEdit = () => {
     } else {
       if (!id) {
         axios
-          .post("/api/post", { name, email, contact })
+          .post("http://localhost:5000/api/post", { name, email, contact })
           .then(() => {
             setState(initialState);
             toast.success("Contact Added Successfully!");
@@ -40,7 +40,7 @@ const AddEdit = () => {
           });
       } else {
         axios
-          .put(`/api/update/${id}`, { name, email, contact })
+          .put(`http://localhost:5000/api/update/${id}`, { name, email, contact })
           .then(() => {
             setState(initialState);
             toast.success("Contact Updated Successfully!");
@@ -59,7 +59,7 @@ const AddEdit = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`/api/get/${id}`)
+        .get(`http://localhost:5000/api/get/${id}`)
         .then((resp) => {
           if (resp.data.length > 0) {
             setState({ ...resp.data[0] });

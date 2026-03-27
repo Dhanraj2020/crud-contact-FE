@@ -10,7 +10,7 @@ const View = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/get/${id}`)
+      .get(`http://localhost:5000/api/get/${id}`)
       .then((resp) => setUser({ ...resp.data[0] }));
   }, [id]);
 
